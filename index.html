@@ -293,37 +293,6 @@ let savedTheme='';try{savedTheme=localStorage.getItem('alfamen-boletos-theme')||
 /* Cores e tratamento noturno do relatório Gestão de Novos Pacientes */
 body.dark{--bg:#0e2334;--paper:#18364b;--ink:#edf4f7;--muted:#bfd0da;--line:#38556b;--brand-navy:#0e2334;--brand-blue:#68b8df;--brand-orange:#ffac84;--accent-text:#ffb899;--shadow:0 10px 32px rgba(0,0,0,.18);background:linear-gradient(128deg,#0e2334 0%,#18364b 55%,#342e2b 100%) fixed!important;color:var(--ink)!important;color-scheme:dark}
 body.dark .wrap{color:var(--ink)}
-body.dark .report-toolbar{background:var(--paper)!important;border-color:var(--line)!important;box-shadow:var(--shadow)}
-body.dark .report-tabs{background:transparent!important;border-color:var(--line)!important;box-shadow:none!important}
-body.dark .report-tab{background:transparent!important;color:var(--muted)!important;border-color:transparent!important}
-body.dark .report-tab:hover{background:#382c27!important;color:#ffd0b1!important}
-body.dark .report-tab.active{background:#49372e!important;color:#ffd0b1!important;border-color:transparent!important;border-bottom:3px solid #ff8a50!important;box-shadow:inset 0 0 0 1px #654335!important}
-body.dark select,body.dark select option{background:var(--paper)!important;color:var(--ink)!important;border-color:var(--line)!important;color-scheme:dark}
-body.dark .toolbar-selects select,body.dark .clinic-filter select{background:#203f55!important;border-color:#4b6c83!important;box-shadow:0 2px 8px #0002}
-body.dark .toolbar-controls .theme-toggle,body.dark .toolbar-controls .print-report{background:linear-gradient(135deg,#203f55,#293c48)!important;color:var(--ink)!important;border-color:var(--line)!important}
-body.dark .toolbar-controls .theme-toggle:hover,body.dark .toolbar-controls .print-report:hover,body.dark .clinic-filter select:hover{background:#294c65!important;border-color:#80b4d0!important}
-body.dark .panel,body.dark .card,body.dark .rank-card,body.dark .assessment-box,body.dark .action-clinics-section,body.dark .action-clinic,body.dark .action-clinic-tile,body.dark .clinic-assessment,body.dark .branch-assessment,body.dark .growth-clinic-card,body.dark .goal-clinic-card,body.dark .category-clinic,body.dark .focus-breakdown,body.dark .focus-kpi,body.dark .focus-lead,body.dark .method,body.dark .clinic-table-wrap{background:var(--paper)!important;color:var(--ink)!important;border-color:var(--line)!important;box-shadow:0 7px 22px #0002}
-body.dark .cards,body.dark .rank-grid,body.dark .assessment-grid,body.dark .clinic-assessment-grid,body.dark .growth-clinic-grid,body.dark .goal-clinic-list,body.dark .action-clinic-grid,body.dark .action-groups,body.dark .growth-rates,body.dark .chart,body.dark .chart-wrap{background:transparent!important;box-shadow:none!important}
-body.dark .note,body.dark .clinic-filter,body.dark .callout,body.dark .category-focus-controls,body.dark .growth-base-value,body.dark .growth-rate,body.dark .clinic-assessment li,body.dark .branch-metric,body.dark .goal-target-line,body.dark .goal-observation,body.dark .goal-month-note,body.dark .action-empty,body.dark .mix-footnote{background:#203f55!important;color:var(--ink)!important;border-color:var(--line)!important}
-body.dark .ctitle{background:linear-gradient(90deg,#203f55,var(--paper))!important;color:var(--ink)!important;border-color:var(--line)!important}
-body.dark .clinic-filter:after{color:var(--muted)!important}
-body.dark .attention-group>h4,body.dark .alert-card,body.dark .attention-group .action-clinic-tile,body.dark .action-focus,body.dark .mix-signal.bad,body.dark .growth-status.bad{background:#482d2c!important;color:#ffb8ae!important;border-color:#784540!important}
-body.dark .positive-group>h4,body.dark .positive-card,body.dark .positive-group .action-clinic-tile,body.dark .action-positive,body.dark .mix-signal.good,body.dark .growth-status.good{background:#203d32!important;color:#a9e1c0!important;border-color:#386b51!important}
-body.dark .mix-signal.neutral,body.dark .growth-status{background:#29353c!important;color:#d4dfe5!important;border-color:#43515a!important}
-body.dark .focus-conclusion{background:#4b362b!important;color:#ffe3d1!important;border-color:#855d48!important}
-body.dark .focus-breakdown summary{background:#203f55!important;color:var(--ink)!important}
-body.dark .legend span,body.dark .rank{background:#24455b!important;color:#dcebf1!important;border-color:#52758b!important}
-body.dark .rank.first,body.dark .best{background:#224c42!important;color:#9ce0be!important}
-body.dark .clinic-assessment,body.dark .branch-assessment,body.dark .growth-clinic-card,body.dark .goal-clinic-card,body.dark .note{border-left-color:color-mix(in srgb,var(--clinic-color,#68b8df) 55%,white)!important}
-body.dark .clinic-assessment,body.dark .branch-assessment,body.dark .growth-clinic-card,body.dark .goal-clinic-card{background:linear-gradient(155deg,var(--paper) 35%,color-mix(in srgb,var(--clinic-color,#68b8df) 9%,var(--paper)))!important}
-body.dark .clinic-assessment h5,body.dark .branch-assessment h5,body.dark .growth-clinic-head h5,body.dark .goal-clinic-head{color:color-mix(in srgb,var(--clinic-color,#68b8df) 55%,white)!important}
-body.dark .goal-observation{border-left-color:color-mix(in srgb,var(--clinic-color,#68b8df) 55%,white)!important}
-body.dark .goal-target-line{border-left-color:#ffac84!important}
-body.dark .card small,body.dark .growth-base-value span,body.dark .growth-total-change>span,body.dark .growth-rate>span,body.dark .growth-analysis,body.dark .action-base,body.dark .goal-month-data span,body.dark .goal-month-legend,body.dark .goal-month-note,body.dark .goal-observation,body.dark .explain,body.dark .muted,body.dark .sub,body.dark .foot{color:var(--muted)!important}
-body.dark .sect,body.dark .title,body.dark .card strong,body.dark .note b,body.dark .assessment-box h4,body.dark .growth-analysis>b,body.dark .growth-base-value strong,body.dark .growth-total-change>strong,body.dark .goal-annual-lines strong,body.dark .goal-annual-lines b,body.dark .goal-target-line strong,body.dark .goal-month-data b,body.dark .goal-observation b,body.dark .clinic-assessment li b,body.dark .branch-metric b,body.dark .metric-head b,body.dark .metric-title,body.dark .ctitle{color:var(--ink)!important}
-body.dark .trend.good,body.dark .signal.good,body.dark .good,body.dark .positive,body.dark .pct-good,body.dark .delta.good,body.dark .metric-positive{color:#82ddb1!important}
-body.dark .trend.bad,body.dark .signal.bad,body.dark .bad,body.dark .negative,body.dark .pct-bad,body.dark .delta.bad,body.dark .metric-negative{color:#ff9da8!important}
-body.dark .neutral,body.dark .trend.neutral,body.dark .signal.neutral{color:var(--muted)!important}
 body.dark select{color:var(--ink)!important}
 body.dark .eyebrow{color:var(--brand-orange)!important}
 body.dark .title,body.dark .sect{color:var(--ink)!important}
@@ -491,6 +460,38 @@ body.dark .goal-month-note{color:var(--muted)!important}
 body.dark .clinic-assessment li{color:var(--muted)!important}
 body.dark .clinic-assessment li>b{color:var(--ink)!important}
 body.dark .clinic-assessment .muted{color:var(--muted)!important}
+
+body.dark .report-toolbar{background:var(--paper)!important;border-color:var(--line)!important;box-shadow:var(--shadow)}
+body.dark .report-tabs{background:transparent!important;border-color:var(--line)!important;box-shadow:none!important}
+body.dark .report-tab{background:transparent!important;color:var(--muted)!important;border-color:transparent!important}
+body.dark .report-tab:hover{background:#382c27!important;color:#ffd0b1!important}
+body.dark .report-tab.active{background:#49372e!important;color:#ffd0b1!important;border-color:transparent!important;border-bottom:3px solid #ff8a50!important;box-shadow:inset 0 0 0 1px #654335!important}
+body.dark select,body.dark select option{background:var(--paper)!important;color:var(--ink)!important;border-color:var(--line)!important;color-scheme:dark}
+body.dark .toolbar-selects select,body.dark .clinic-filter select{background:#203f55!important;border-color:#4b6c83!important;box-shadow:0 2px 8px #0002}
+body.dark .toolbar-controls .theme-toggle,body.dark .toolbar-controls .print-report{background:linear-gradient(135deg,#203f55,#293c48)!important;color:var(--ink)!important;border-color:var(--line)!important}
+body.dark .toolbar-controls .theme-toggle:hover,body.dark .toolbar-controls .print-report:hover,body.dark .clinic-filter select:hover{background:#294c65!important;border-color:#80b4d0!important}
+body.dark .panel,body.dark .card,body.dark .rank-card,body.dark .assessment-box,body.dark .action-clinics-section,body.dark .action-clinic,body.dark .action-clinic-tile,body.dark .clinic-assessment,body.dark .branch-assessment,body.dark .growth-clinic-card,body.dark .goal-clinic-card,body.dark .category-clinic,body.dark .focus-breakdown,body.dark .focus-kpi,body.dark .focus-lead,body.dark .method,body.dark .clinic-table-wrap{background:var(--paper)!important;color:var(--ink)!important;border-color:var(--line)!important;box-shadow:0 7px 22px #0002}
+body.dark .cards,body.dark .rank-grid,body.dark .assessment-grid,body.dark .clinic-assessment-grid,body.dark .growth-clinic-grid,body.dark .goal-clinic-list,body.dark .action-clinic-grid,body.dark .action-groups,body.dark .growth-rates,body.dark .chart,body.dark .chart-wrap{background:transparent!important;box-shadow:none!important}
+body.dark .note,body.dark .clinic-filter,body.dark .callout,body.dark .category-focus-controls,body.dark .growth-base-value,body.dark .growth-rate,body.dark .clinic-assessment li,body.dark .branch-metric,body.dark .goal-target-line,body.dark .goal-observation,body.dark .goal-month-note,body.dark .action-empty,body.dark .mix-footnote{background:#203f55!important;color:var(--ink)!important;border-color:var(--line)!important}
+body.dark .ctitle{background:linear-gradient(90deg,#203f55,var(--paper))!important;color:var(--ink)!important;border-color:var(--line)!important}
+body.dark .clinic-filter:after{color:var(--muted)!important}
+body.dark .attention-group>h4,body.dark .alert-card,body.dark .attention-group .action-clinic-tile,body.dark .action-focus,body.dark .mix-signal.bad,body.dark .growth-status.bad{background:#482d2c!important;color:#ffb8ae!important;border-color:#784540!important}
+body.dark .positive-group>h4,body.dark .positive-card,body.dark .positive-group .action-clinic-tile,body.dark .action-positive,body.dark .mix-signal.good,body.dark .growth-status.good{background:#203d32!important;color:#a9e1c0!important;border-color:#386b51!important}
+body.dark .mix-signal.neutral,body.dark .growth-status{background:#29353c!important;color:#d4dfe5!important;border-color:#43515a!important}
+body.dark .focus-conclusion{background:#4b362b!important;color:#ffe3d1!important;border-color:#855d48!important}
+body.dark .focus-breakdown summary{background:#203f55!important;color:var(--ink)!important}
+body.dark .legend span,body.dark .rank{background:#24455b!important;color:#dcebf1!important;border-color:#52758b!important}
+body.dark .rank.first,body.dark .best{background:#224c42!important;color:#9ce0be!important}
+body.dark .clinic-assessment,body.dark .branch-assessment,body.dark .growth-clinic-card,body.dark .goal-clinic-card,body.dark .note{border-left-color:color-mix(in srgb,var(--clinic-color,#68b8df) 55%,white)!important}
+body.dark .clinic-assessment,body.dark .branch-assessment,body.dark .growth-clinic-card,body.dark .goal-clinic-card{background:linear-gradient(155deg,var(--paper) 35%,color-mix(in srgb,var(--clinic-color,#68b8df) 9%,var(--paper)))!important}
+body.dark .clinic-assessment h5,body.dark .branch-assessment h5,body.dark .growth-clinic-head h5,body.dark .goal-clinic-head{color:color-mix(in srgb,var(--clinic-color,#68b8df) 55%,white)!important}
+body.dark .goal-observation{border-left-color:color-mix(in srgb,var(--clinic-color,#68b8df) 55%,white)!important}
+body.dark .goal-target-line{border-left-color:#ffac84!important}
+body.dark .card small,body.dark .growth-base-value span,body.dark .growth-total-change>span,body.dark .growth-rate>span,body.dark .growth-analysis,body.dark .action-base,body.dark .goal-month-data span,body.dark .goal-month-legend,body.dark .goal-month-note,body.dark .goal-observation,body.dark .explain,body.dark .muted,body.dark .sub,body.dark .foot{color:var(--muted)!important}
+body.dark .sect,body.dark .title,body.dark .card strong,body.dark .note b,body.dark .assessment-box h4,body.dark .growth-analysis>b,body.dark .growth-base-value strong,body.dark .growth-total-change>strong,body.dark .goal-annual-lines strong,body.dark .goal-annual-lines b,body.dark .goal-target-line strong,body.dark .goal-month-data b,body.dark .goal-observation b,body.dark .clinic-assessment li b,body.dark .branch-metric b,body.dark .metric-head b,body.dark .metric-title,body.dark .ctitle{color:var(--ink)!important}
+body.dark .trend.good,body.dark .signal.good,body.dark .good,body.dark .positive,body.dark .pct-good,body.dark .delta.good,body.dark .metric-positive{color:#82ddb1!important}
+body.dark .trend.bad,body.dark .signal.bad,body.dark .bad,body.dark .negative,body.dark .pct-bad,body.dark .delta.bad,body.dark .metric-negative{color:#ff9da8!important}
+body.dark .neutral,body.dark .trend.neutral,body.dark .signal.neutral{color:var(--muted)!important}
 /* Tabelas seguem as faixas suaves das tabelas mensais da referência */
 body.dark table,body.dark .tbl,body.dark .goal-month-table{color:var(--ink)!important;border-color:var(--line)!important}
 body.dark th,body.dark .tbl th,body.dark .goal-month-table th{background:#1e2b30!important;color:#bdcbd0!important;border-color:#38556b!important}
