@@ -645,4 +645,21 @@ body.dark .metric-card{background:var(--metric-tint)!important;border-color:var(
 .dark .metric-card.metric-liquidados{background:linear-gradient(145deg,#1f3d36 0%,#1b3933 76%,#214239 100%)!important}
 .dark .metric-card.metric-suspensos{background:linear-gradient(145deg,#3d3829 0%,#373323 76%,#423b29 100%)!important}
 </style>
+<style id="indicator-section-spacing">
+#cards{margin-bottom:28px!important}
+#view-indicators>.sect{margin-top:26px!important;margin-bottom:15px!important}
+#charts{display:grid;grid-template-columns:minmax(0,1fr);row-gap:22px}
+#charts>.metric-panel{margin:0!important;padding:18px!important}
+#charts>.metric-panel .ctitle{margin-bottom:10px}
+#charts>.metric-panel .sub{margin:10px 0 15px}
+#charts>.metric-panel .notes{margin-top:13px;gap:11px}
+@media(max-width:700px){
+ #cards{margin-bottom:22px!important}
+ #view-indicators>.sect{margin-top:22px!important;margin-bottom:12px!important}
+ #charts{row-gap:16px}
+ #charts>.metric-panel{padding:14px!important}
+ #charts>.metric-panel .sub{margin:9px 0 12px}
+ #charts>.metric-panel .notes{margin-top:11px;gap:8px}
+}
+</style>
 </body></html>
