@@ -514,7 +514,8 @@ body.dark .focus-table tbody tr:nth-child(odd){background:#203f55!important}
 body.dark .chart-tooltip,body.dark .card-tooltip,body.dark .mix-row-tooltip,body.dark [role=tooltip],body.dark .note[data-tooltip]:hover::after{background:#17374d!important;color:var(--ink)!important;border-color:#6a8ba1!important;box-shadow:0 12px 40px #0008!important}
 body.dark .chart-tooltip>strong,body.dark .chart-tooltip b,body.dark .card-tooltip>strong,body.dark .card-tooltip b,body.dark .mix-tip-head>div{color:var(--ink)!important}
 body.dark .chart-tooltip small,body.dark .card-tooltip small,body.dark .mix-tip-head small{color:var(--muted)!important}
-body.dark svg text{fill:var(--muted)}
+body.dark svg text[stroke="white"],body.dark svg text[stroke="#fff"]{stroke:var(--paper)!important}
+body.dark svg [fill="#c63f25"],body.dark svg [fill="#db4d16"]{fill:#ff9da8!important}body.dark svg [fill="#087a4d"],body.dark svg [fill="#07804e"]{fill:#82ddb1!important}
 body.dark svg text[fill="#6c7884"],body.dark svg text[fill="#6b7d89"],body.dark svg text[fill="#526677"]{fill:var(--muted)!important}
 body.dark svg [stroke="#e4e9ee"],body.dark svg [stroke="#e5ebef"]{stroke:#38556b!important}
 body.dark svg .hover-line{stroke:#bfd0da!important}
