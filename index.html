@@ -875,5 +875,122 @@ body.dark .clinic-choice-dot[data-clinic="POA"]{--clinic-dot:#5bd58f!important}
  document.addEventListener('scroll',()=>{if(opened)position(opened)},true);
  refresh();
 })();
+</script><!-- ALFAMEN_SHARE_TOOLS_START -->
+<style id="alfamen-share-tools-style">
+.png-capture-host{position:relative!important}
+.png-action{display:inline-grid;place-items:center;width:34px;height:34px;padding:0;border:1px solid #cbd9e2;border-radius:10px;background:rgba(255,255,255,.94);color:#12395b;box-shadow:0 5px 14px #12395b18;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease,background .18s ease;z-index:45}
+.png-action:hover,.png-action:focus-visible{transform:translateY(-2px);border-color:#e7510e;background:#fff7f2;box-shadow:0 9px 20px #12395b24;outline:none}
+.png-action svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.png-action.capture-element{position:absolute;top:10px;right:10px}
+.cards>.png-action.capture-group{position:absolute;top:-43px;right:0;width:auto;grid-auto-flow:column;gap:7px;padding:0 11px;font-size:10px;font-weight:800;letter-spacing:.035em}
+.cards{position:relative}
+.metric-card>.png-action.capture-element{top:9px;right:9px;width:31px;height:31px}
+.metric-panel>.png-action.capture-element,.goal-clinic-card>.png-action.capture-element,.rank-card>.png-action.capture-element,.assessment-box>.png-action.capture-element,.growth-clinic-card>.png-action.capture-element,.action-clinic-tile>.png-action.capture-element{top:11px;right:11px}
+.metric-card>small,.metric-panel>.ctitle,.goal-clinic-card>.goal-clinic-head,.rank-card>h3,.assessment-box>h4,.growth-clinic-card>.growth-clinic-head,.action-clinic-tile>header{padding-right:42px}
+.share-tip-toolbar{display:flex!important;align-items:center!important;justify-content:flex-end!important;gap:6px!important;margin:-5px -5px 8px!important;padding:0 0 7px!important;border-bottom:1px solid #dce5ea!important}
+.share-tip-toolbar .png-action{position:static!important;width:29px;height:29px;box-shadow:none;background:#f5f8fa}
+.share-tip-toolbar .png-action:hover{background:#fff3ec}
+.share-tip-toolbar .tip-close{font-size:19px;font-weight:500;line-height:1}
+.card-tooltip.is-pinned,.chart-tooltip.is-pinned,.mix-row-tooltip.is-pinned,.note-fixed-tooltip.is-pinned{display:block!important;pointer-events:auto!important;z-index:1200!important}
+.card-tooltip.tip-suppressed{display:none!important}
+.note.tooltip-source-pinned[data-tooltip]::after{display:none!important}
+.card-tooltip.is-pinned{max-height:min(70vh,560px);overflow:auto}
+.chart-tooltip.is-pinned{min-width:230px;max-height:min(70vh,560px);overflow:auto}
+.mix-row-tooltip.is-pinned{max-height:min(86vh,720px);overflow:auto}
+.note-fixed-tooltip{display:none;position:fixed;z-index:1200;width:min(410px,calc(100vw - 24px));max-height:min(76vh,610px);overflow:auto;padding:14px 16px;background:#fff;border:1px solid #cfdbe4;border-left:5px solid var(--clinic-color,#12395b);border-radius:11px;box-shadow:0 18px 42px #12395b35;color:#294052;font-size:12px;line-height:1.65;text-align:left}
+.note-fixed-tooltip h4{margin:0 0 7px;color:#12395b;font-size:14px;text-transform:uppercase}
+.tooltip-pin-hint{display:block;margin-top:7px;color:#71818c;font-size:9px;text-align:right}
+.share-toast{position:fixed;left:50%;bottom:24px;z-index:3000;transform:translate(-50%,18px);max-width:min(440px,calc(100vw - 28px));padding:11px 16px;border-radius:22px;background:#12395b;color:#fff;box-shadow:0 12px 30px #061d3260;font-size:12px;font-weight:700;text-align:center;opacity:0;pointer-events:none;transition:opacity .2s ease,transform .2s ease}
+.share-toast.show{opacity:1;transform:translate(-50%,0)}
+.png-capture-stage{position:fixed!important;left:-100000px!important;top:0!important;z-index:-1!important;overflow:visible!important;pointer-events:none!important}
+.png-capture-clone{box-sizing:border-box!important;margin:0!important;transform:none!important;box-shadow:none!important;max-width:none!important;max-height:none!important;overflow:visible!important}
+.png-capture-clone *{animation:none!important;transition:none!important}
+.png-capture-clone [data-png-action],.png-capture-clone .share-tip-toolbar,.png-capture-clone .tooltip-pin-hint{display:none!important}
+.png-capture-clone .scroll,.png-capture-clone .goal-clinic-scroll,.png-capture-clone .table-scroll,.png-capture-clone .chart-wrap{overflow:visible!important;max-width:none!important;max-height:none!important}
+body.dark .png-action{background:#1f4056;color:#eef8ff;border-color:#5f8197;box-shadow:0 6px 16px #0005}
+body.dark .png-action:hover,body.dark .png-action:focus-visible{background:#31526a;border-color:#ff9362}
+body.dark .share-tip-toolbar{border-bottom-color:#4d6c80!important}
+body.dark .share-tip-toolbar .png-action{background:#294b61}
+body.dark .note-fixed-tooltip{background:#17374d;color:var(--ink);border-color:#6a8ba1}
+body.dark .note-fixed-tooltip h4{color:var(--ink)}
+@media(max-width:700px){.cards>.png-action.capture-group{position:static;grid-column:1/-1;justify-self:end;margin:0 0 4px}.png-action.capture-element{width:31px;height:31px;top:7px;right:7px}.metric-card>small,.metric-panel>.ctitle{padding-right:37px}}
+@media print{.png-action,.share-tip-toolbar,.share-toast,.note-fixed-tooltip{display:none!important}}
+@media(prefers-reduced-motion:reduce){.png-action,.share-toast{transition:none}}
+</style>
+<script id="alfamen-share-tools-script">
+(function(){
+  'use strict';
+  const COPY_ICON='<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="8" width="11" height="11" rx="2"></rect><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"></path><path d="m11 14 2 2 4-4"></path></svg>';
+  let pinned=null,pinnedSource=null,toastTimer=null,enhanceTimer=null,capturing=false;
+  const $=(selector,root=document)=>root.querySelector(selector);
+  const $$=(selector,root=document)=>Array.from(root.querySelectorAll(selector));
+  function toast(message){let node=$('.share-toast');if(!node){node=document.createElement('div');node.className='share-toast';node.setAttribute('role','status');document.body.appendChild(node)}node.textContent=message;node.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>node.classList.remove('show'),2600)}
+  function safeName(text){return (text||'relatorio-alfamen').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-zA-Z0-9]+/g,'-').replace(/^-|-$/g,'').toLowerCase()||'relatorio-alfamen'}
+  function makeButton(label,extra){let button=document.createElement('button');button.type='button';button.className='png-action '+(extra||'');button.dataset.pngAction='true';button.innerHTML=COPY_ICON+(extra&&extra.includes('capture-group')?'<span> COPIAR INDICADORES</span>':'');button.setAttribute('aria-label',label);button.title=label;return button}
+  function backgroundColor(){return document.body.classList.contains('dark')?'#102838':'#ffffff'}
+  function allCss(){let css='';for(const sheet of Array.from(document.styleSheets)){try{for(const rule of Array.from(sheet.cssRules||[]))css+=rule.cssText+'\n'}catch(_){}}return css}
+  function maxContentWidth(element){let width=Math.ceil(Math.max(element.getBoundingClientRect().width,element.scrollWidth||0));for(const node of $$('*',element)){if(node.matches('table,svg,.scroll,.goal-clinic-scroll,.table-scroll'))width=Math.max(width,Math.ceil(node.scrollWidth||node.getBoundingClientRect().width||0))}return Math.min(Math.max(width,320),2200)}
+  function maxContentHeight(element){let height=Math.ceil(Math.max(element.getBoundingClientRect().height,element.scrollHeight||0));for(const node of $$('*',element)){height=Math.max(height,Math.ceil((node.offsetTop||0)+(node.scrollHeight||0)))}return Math.min(Math.max(height,120),12000)}
+  async function elementPng(element){
+    if(capturing)throw new Error('Já existe uma imagem sendo preparada.');capturing=true;
+    let stage,svgUrl;
+    try{
+      const width=maxContentWidth(element),clone=element.cloneNode(true);
+      clone.classList.add('png-capture-clone');clone.classList.remove('is-pinned');clone.removeAttribute('hidden');clone.style.width=width+'px';clone.style.height='auto';clone.style.display='block';
+      $$('[data-png-action],.share-tip-toolbar,.tooltip-pin-hint',clone).forEach(node=>node.remove());
+      $$('.card-tooltip,.chart-tooltip,.mix-row-tooltip,.note-fixed-tooltip',clone).forEach(node=>{if(element.matches('.card-tooltip,.chart-tooltip,.mix-row-tooltip,.note-fixed-tooltip')||node.classList.contains('is-pinned'))node.style.display='block';else node.remove()});
+      stage=document.createElement('div');stage.className='png-capture-stage '+(document.body.classList.contains('dark')?'dark':'');stage.style.width=width+'px';stage.style.background=backgroundColor();stage.appendChild(clone);document.body.appendChild(stage);
+      await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
+      const height=maxContentHeight(clone),css=allCss(),markup=clone.outerHTML;
+      const svg='<svg xmlns="http://www.w3.org/2000/svg" width="'+width+'" height="'+height+'"><foreignObject width="100%" height="100%"><div xmlns="http://www.w3.org/1999/xhtml" class="'+(document.body.classList.contains('dark')?'dark':'')+'" style="box-sizing:border-box;width:'+width+'px;height:'+height+'px;padding:0;background:'+backgroundColor()+'"><style>'+css+'</style>'+markup+'</div></foreignObject></svg>';
+      const blob=new Blob([svg],{type:'image/svg+xml;charset=utf-8'});svgUrl=URL.createObjectURL(blob);
+      const image=new Image();await new Promise((resolve,reject)=>{image.onload=resolve;image.onerror=()=>reject(new Error('O navegador não conseguiu montar a imagem.'));image.src=svgUrl});
+      const scale=Math.min(2,8192/Math.max(width,height));const canvas=document.createElement('canvas');canvas.width=Math.max(1,Math.round(width*scale));canvas.height=Math.max(1,Math.round(height*scale));const context=canvas.getContext('2d');context.scale(scale,scale);context.fillStyle=backgroundColor();context.fillRect(0,0,width,height);context.drawImage(image,0,0,width,height);
+      return await new Promise((resolve,reject)=>canvas.toBlob(value=>value?resolve(value):reject(new Error('Não foi possível gerar o PNG.')),'image/png',1));
+    }finally{capturing=false;if(svgUrl)URL.revokeObjectURL(svgUrl);if(stage)stage.remove()}
+  }
+  async function copyPng(element,label){
+    try{
+      toast('Preparando imagem em alta resolução…');const blob=await elementPng(element);
+      if(navigator.clipboard&&window.ClipboardItem){await navigator.clipboard.write([new ClipboardItem({'image/png':blob})]);toast('PNG copiado. Agora é só colar no WhatsApp.')}
+      else{downloadPng(blob,label);toast('PNG salvo porque o navegador não permite copiar imagens.')}
+    }catch(error){
+      try{const blob=await elementPng(element);downloadPng(blob,label);toast('PNG salvo. O navegador bloqueou a cópia direta.')}catch(_){toast(error&&error.message?error.message:'Não foi possível gerar a imagem.')}
+    }
+  }
+  function downloadPng(blob,label){const link=document.createElement('a');link.href=URL.createObjectURL(blob);link.download=safeName(label)+'-'+new Date().toISOString().slice(0,10)+'.png';document.body.appendChild(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(link.href),2000)}
+  function addCapture(element,label,group){if(!element||element.querySelector(':scope > [data-png-action="true"].'+(group?'capture-group':'capture-element')))return;element.classList.add('png-capture-host');const button=makeButton(label,group?'capture-group':'capture-element');button.addEventListener('click',event=>{event.preventDefault();event.stopPropagation();copyPng(element,label)});element.appendChild(button)}
+  function closePinned(){if(pinned){const oldTip=pinned,oldSource=pinnedSource;oldTip.classList.remove('is-pinned');if(oldTip.matches('.card-tooltip')){oldTip.classList.add('tip-suppressed');oldSource?.addEventListener('pointerleave',()=>oldTip.classList.remove('tip-suppressed'),{once:true})}else if(oldTip.matches('.chart-tooltip,.mix-row-tooltip,.note-fixed-tooltip'))oldTip.style.display='none';oldSource?.classList.remove('tooltip-source-pinned')}pinned=null;pinnedSource=null}
+  function decorateTip(tip,label){
+    if(!tip||tip.querySelector(':scope > .share-tip-toolbar'))return;
+    const toolbar=document.createElement('div');toolbar.className='share-tip-toolbar';toolbar.dataset.pngAction='true';
+    const copy=makeButton('Copiar este tooltip em PNG','tip-copy'),close=document.createElement('button');close.type='button';close.className='png-action tip-close';close.dataset.pngAction='true';close.textContent='×';close.title='Fechar tooltip';close.setAttribute('aria-label','Fechar tooltip');
+    copy.addEventListener('click',event=>{event.preventDefault();event.stopPropagation();copyPng(tip,label||'tooltip')});close.addEventListener('click',event=>{event.preventDefault();event.stopPropagation();closePinned()});toolbar.append(copy,close);tip.prepend(toolbar);
+    if(!tip.querySelector('.tooltip-pin-hint')){const hint=document.createElement('small');hint.className='tooltip-pin-hint';hint.textContent='Tooltip fixado · Esc para fechar';tip.appendChild(hint)}
+  }
+  function pinTip(tip,source,label){if(!tip)return;closePinned();pinned=tip;pinnedSource=source;tip.classList.remove('tip-suppressed');tip.classList.add('is-pinned');source?.classList.add('tooltip-source-pinned');tip.style.display='block';decorateTip(tip,label)}
+  function positionFixedTip(tip,event){const margin=12,w=tip.offsetWidth||390,h=tip.offsetHeight||260;let left=Math.min(window.innerWidth-w-margin,Math.max(margin,event.clientX+12)),top=Math.min(window.innerHeight-h-margin,Math.max(margin,event.clientY+12));tip.style.left=left+'px';tip.style.top=top+'px'}
+  function bindPinning(){
+    $$('#cards .metric-card').forEach(card=>{if(card.dataset.pinReady)return;card.dataset.pinReady='1';card.tabIndex=0;card.addEventListener('click',event=>{if(event.target.closest('[data-png-action]'))return;const tip=$('.card-tooltip',card);if(pinned===tip){closePinned();return}pinTip(tip,card,(card.querySelector('small')?.textContent||'indicador')+' por clínica')})});
+    $$('.chart-wrap').forEach(wrap=>{if(wrap.dataset.pinReady)return;wrap.dataset.pinReady='1';const svg=$('svg',wrap),tip=$('.chart-tooltip',wrap);if(!svg||!tip)return;svg.addEventListener('pointermove',event=>{if(pinned===tip)event.stopImmediatePropagation()},true);svg.addEventListener('pointerleave',event=>{if(pinned===tip)event.stopImmediatePropagation()},true);svg.addEventListener('click',event=>{if(tip.style.display==='none'||!tip.innerText.trim())return;if(pinned===tip){closePinned();return}pinTip(tip,wrap,'detalhe mensal do gráfico');event.stopPropagation()})});
+    $$('.mix-row').forEach(row=>{if(row.dataset.pinReady)return;row.dataset.pinReady='1';row.addEventListener('pointermove',event=>{if(pinnedSource===row)event.stopImmediatePropagation()},true);row.addEventListener('pointerleave',event=>{if(pinnedSource===row)event.stopImmediatePropagation()},true);row.addEventListener('click',event=>{const tip=$('.mix-row-tooltip');if(!tip||tip.style.display==='none')return;if(pinned===tip){closePinned();return}pinTip(tip,row,(row.querySelector('.rowlabel')?.textContent||'composição')+' mensal');event.stopPropagation()})});
+    $$('.note[data-tooltip]').forEach(note=>{if(note.dataset.pinReady)return;note.dataset.pinReady='1';note.tabIndex=0;note.addEventListener('click',event=>{if(event.target.closest('[data-png-action]'))return;let tip=$('.note-fixed-tooltip');if(!tip){tip=document.createElement('div');tip.className='note-fixed-tooltip';document.body.appendChild(tip)}const title=note.querySelector('b')?.textContent||'Análise da clínica';tip.style.setProperty('--clinic-color',getComputedStyle(note).getPropertyValue('--clinic-color')||'#12395b');tip.innerHTML='<h4>'+title+'</h4><div>'+note.dataset.tooltip+'</div>';pinTip(tip,note,title);positionFixedTip(tip,event);event.stopPropagation()})});
+  }
+  function enhance(){
+    const cards=$('#cards');if(cards)addCapture(cards,'Indicadores principais',true);
+    $$('#cards .metric-card').forEach(card=>addCapture(card,card.querySelector('small')?.textContent||'Indicador'));
+    $$('#charts>.metric-panel').forEach(panel=>addCapture(panel,(panel.querySelector('.metric-title')?.textContent||'Indicador')+' completo'));
+    const selectors=['#clinic','#mix','#ranking .rank-card','#rankingMonth .rank-card','#assessmentResult .assessment-box','#growthAssessment .assessment-box','#actionsAssessment .action-clinic-tile','.goal-clinic-card','#view-method .method'];
+    selectors.forEach(selector=>$$(selector).forEach((node,index)=>{const title=node.querySelector('h3,h4,h5,.goal-clinic-head')?.textContent||node.closest('.report-view')?.querySelector('.sect')?.textContent||'Tabela do relatório';addCapture(node,title+' '+(index+1))}));
+    bindPinning();
+    if(pinned)decorateTip(pinned,'tooltip');
+  }
+  const observer=new MutationObserver(()=>{clearTimeout(enhanceTimer);enhanceTimer=setTimeout(enhance,35)});observer.observe(document.documentElement,{subtree:true,childList:true});
+  document.addEventListener('keydown',event=>{if(event.key==='Escape')closePinned()});document.addEventListener('pointerdown',event=>{if(pinned&&!event.target.closest('.is-pinned')&&!event.target.closest('.metric-card,.chart-wrap,.mix-row,.note[data-tooltip]'))closePinned()},true);
+  window.addEventListener('resize',()=>{if(pinned&&pinned.matches('.note-fixed-tooltip'))closePinned()});
+  window.copyReportElementPng=copyPng;
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',enhance);else enhance();
+})();
 </script>
+<!-- ALFAMEN_SHARE_TOOLS_END -->
 </body></html>
