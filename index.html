@@ -931,12 +931,24 @@ body.dark .note-fixed-tooltip h4{color:var(--ink)}
   function allCss(){let css='';for(const sheet of Array.from(document.styleSheets)){try{for(const rule of Array.from(sheet.cssRules||[]))css+=rule.cssText+'\n'}catch(_){}}return css}
   function maxContentWidth(element){let width=Math.ceil(Math.max(element.getBoundingClientRect().width,element.scrollWidth||0));for(const node of $$('*',element)){if(node.matches('table,svg,.scroll,.goal-clinic-scroll,.table-scroll'))width=Math.max(width,Math.ceil(node.scrollWidth||node.getBoundingClientRect().width||0))}return Math.min(Math.max(width,320),2200)}
   function maxContentHeight(element){let height=Math.ceil(Math.max(element.getBoundingClientRect().height,element.scrollHeight||0));for(const node of $$('*',element)){height=Math.max(height,Math.ceil((node.offsetTop||0)+(node.scrollHeight||0)))}return Math.min(Math.max(height,120),12000)}
+  function legacyColor(value){
+    return String(value||'').replace(/color\(srgb\s+([\d.]+)\s+([\d.]+)\s+([\d.]+)(?:\s*\/\s*([\d.]+))?\)/gi,(_,r,g,b,a)=>{
+      const channel=n=>Math.max(0,Math.min(255,Math.round(Number(n)*255)));
+      return a===undefined?'rgb('+channel(r)+', '+channel(g)+', '+channel(b)+')':'rgba('+channel(r)+', '+channel(g)+', '+channel(b)+', '+Math.max(0,Math.min(1,Number(a)))+')';
+    });
+  }
+  function freezeCaptureColors(source,clone){
+    const properties=['color','background-color','background-image','border-top-color','border-right-color','border-bottom-color','border-left-color','outline-color','text-decoration-color','box-shadow','fill','stroke'];
+    const sources=[source,...$$('*',source)],clones=[clone,...$$('*',clone)];
+    sources.forEach((node,index)=>{const target=clones[index];if(!target)return;const style=getComputedStyle(node);properties.forEach(property=>{const value=style.getPropertyValue(property);if(value&&/color\(/i.test(value))target.style.setProperty(property,legacyColor(value))})});
+  }
   async function elementPng(element){
     if(capturing)throw new Error('Já existe uma imagem sendo preparada.');capturing=true;
     let stage;
     try{
       const width=maxContentWidth(element),clone=element.cloneNode(true);
       clone.classList.add('png-capture-clone');clone.classList.remove('is-pinned');clone.removeAttribute('hidden');clone.style.width=width+'px';clone.style.height='auto';clone.style.display='block';
+      freezeCaptureColors(element,clone);
       $$('[data-png-action],.share-tip-toolbar,.tooltip-pin-hint',clone).forEach(node=>node.remove());
       $$('.card-tooltip,.chart-tooltip,.mix-row-tooltip,.note-fixed-tooltip',clone).forEach(node=>{if(element.matches('.card-tooltip,.chart-tooltip,.mix-row-tooltip,.note-fixed-tooltip')||node.classList.contains('is-pinned'))node.style.display='block';else node.remove()});
       stage=document.createElement('div');stage.className='png-capture-stage '+(document.body.classList.contains('dark')?'dark':'');stage.style.width=width+'px';stage.style.background=backgroundColor();stage.appendChild(clone);document.body.appendChild(stage);
@@ -991,6 +1003,7 @@ body.dark .note-fixed-tooltip h4{color:var(--ink)}
 })();
 </script>
 <!-- ALFAMEN_SHARE_TOOLS_END -->
+
 
 
 </body></html>
