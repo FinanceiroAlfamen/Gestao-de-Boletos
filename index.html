@@ -943,7 +943,7 @@ body.dark .note-fixed-tooltip h4{color:var(--ink)}
   }
   async function elementPng(element){
     if(capturing)throw new Error('Já existe uma imagem sendo preparada.');capturing=true;
-    let stage;
+    let stage,disabledSheets=[];
     try{
       const width=maxContentWidth(element),clone=element.cloneNode(true);
       clone.classList.add('png-capture-clone');clone.classList.remove('is-pinned');clone.removeAttribute('hidden');clone.style.width=width+'px';clone.style.height='auto';clone.style.display='block';
@@ -954,9 +954,10 @@ body.dark .note-fixed-tooltip h4{color:var(--ink)}
       await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
       const height=maxContentHeight(clone),scale=Math.min(2,8192/Math.max(width,height));
       if(typeof window.html2canvas!=='function')throw new Error('O recurso de captura ainda não foi carregado.');
-      const canvas=await window.html2canvas(clone,{scale:scale,backgroundColor:backgroundColor(),logging:false,useCORS:true,allowTaint:false,width:width,height:height,windowWidth:width,windowHeight:height,scrollX:0,scrollY:0,onclone:doc=>doc.querySelectorAll('style,link[rel="stylesheet"]').forEach(node=>node.remove())});
+      disabledSheets=Array.from(document.styleSheets).map(sheet=>({sheet,disabled:sheet.disabled}));disabledSheets.forEach(item=>item.sheet.disabled=true);
+      const canvas=await window.html2canvas(clone,{scale:scale,backgroundColor:backgroundColor(),logging:false,useCORS:true,allowTaint:false,width:width,height:height,windowWidth:width,windowHeight:height,scrollX:0,scrollY:0});
       return await new Promise((resolve,reject)=>canvas.toBlob(value=>value?resolve(value):reject(new Error('Não foi possível gerar o PNG.')),'image/png',1));
-    }finally{capturing=false;if(stage)stage.remove()}
+    }finally{disabledSheets.forEach(item=>item.sheet.disabled=item.disabled);capturing=false;if(stage)stage.remove()}
   }
   async function copyPng(element,label){
     try{
@@ -1002,6 +1003,7 @@ body.dark .note-fixed-tooltip h4{color:var(--ink)}
 })();
 </script>
 <!-- ALFAMEN_SHARE_TOOLS_END -->
+
 
 
 
