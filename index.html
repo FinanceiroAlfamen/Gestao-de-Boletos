@@ -980,8 +980,30 @@ body.dark .note-fixed-tooltip h4{color:var(--ink)}
     copy.addEventListener('click',event=>{event.preventDefault();event.stopPropagation();copyPng(tip,label||'tooltip')});close.addEventListener('click',event=>{event.preventDefault();event.stopPropagation();closePinned()});toolbar.append(copy,close);tip.prepend(toolbar);
     if(!tip.querySelector('.tooltip-pin-hint')){const hint=document.createElement('small');hint.className='tooltip-pin-hint';hint.textContent='Tooltip fixado · Esc para fechar';tip.appendChild(hint)}
   }
-  function pinTip(tip,source,label){if(!tip)return;closePinned();pinned=tip;pinnedSource=source;tip.classList.remove('tip-suppressed');tip.classList.add('is-pinned');source?.cMethodInvocationException: 
-Line |
-   2 |  … oard_boletos.html'); [Console]::Out.Write($s.Substring(1330000,6136))
-     |                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-     | Exception calling "Substring" with "2" argument(s): "Index and length must refer to a location within the string. (Parameter 'length')"
+  function pinTip(tip,source,label){if(!tip)return;closePinned();pinned=tip;pinnedSource=source;tip.classList.remove('tip-suppressed');tip.classList.add('is-pinned');source?.classList.add('tooltip-source-pinned');tip.style.display='block';decorateTip(tip,label)}
+  function positionFixedTip(tip,event){const margin=12,w=tip.offsetWidth||390,h=tip.offsetHeight||260;let left=Math.min(window.innerWidth-w-margin,Math.max(margin,event.clientX+12)),top=Math.min(window.innerHeight-h-margin,Math.max(margin,event.clientY+12));tip.style.left=left+'px';tip.style.top=top+'px'}
+  function bindPinning(){
+    $$('#cards .metric-card').forEach(card=>{if(card.dataset.pinReady)return;card.dataset.pinReady='1';card.tabIndex=0;card.addEventListener('click',event=>{if(event.target.closest('[data-png-action]'))return;const tip=$('.card-tooltip',card);if(pinned===tip){closePinned();return}pinTip(tip,card,(card.querySelector('small')?.textContent||'indicador')+' por clínica')})});
+    $$('.chart-wrap').forEach(wrap=>{if(wrap.dataset.pinReady)return;wrap.dataset.pinReady='1';const svg=$('svg',wrap),tip=$('.chart-tooltip',wrap);if(!svg||!tip)return;svg.addEventListener('pointermove',event=>{if(pinned===tip)event.stopImmediatePropagation()},true);svg.addEventListener('pointerleave',event=>{if(pinned===tip)event.stopImmediatePropagation()},true);svg.addEventListener('click',event=>{if(tip.style.display==='none'||!tip.innerText.trim())return;if(pinned===tip){closePinned();return}pinTip(tip,wrap,'detalhe mensal do gráfico');event.stopPropagation()})});
+    $$('.mix-row').forEach(row=>{if(row.dataset.pinReady)return;row.dataset.pinReady='1';row.addEventListener('pointermove',event=>{if(pinnedSource===row)event.stopImmediatePropagation()},true);row.addEventListener('pointerleave',event=>{if(pinnedSource===row)event.stopImmediatePropagation()},true);row.addEventListener('click',event=>{const tip=$('.mix-row-tooltip');if(!tip||tip.style.display==='none')return;if(pinned===tip){closePinned();return}pinTip(tip,row,(row.querySelector('.rowlabel')?.textContent||'composição')+' mensal');event.stopPropagation()})});
+    $$('.note[data-tooltip]').forEach(note=>{if(note.dataset.pinReady)return;note.dataset.pinReady='1';note.tabIndex=0;note.addEventListener('click',event=>{if(event.target.closest('[data-png-action]'))return;let tip=$('.note-fixed-tooltip');if(!tip){tip=document.createElement('div');tip.className='note-fixed-tooltip';document.body.appendChild(tip)}const title=note.querySelector('b')?.textContent||'Análise da clínica';tip.style.setProperty('--clinic-color',getComputedStyle(note).getPropertyValue('--clinic-color')||'#12395b');tip.innerHTML='<h4>'+title+'</h4><div>'+note.dataset.tooltip+'</div>';pinTip(tip,note,title);positionFixedTip(tip,event);event.stopPropagation()})});
+  }
+  function enhance(){
+    const cards=$('#cards');if(cards)addCapture(cards,'Indicadores principais',true);
+    $$('#cards .metric-card').forEach(card=>addCapture(card,card.querySelector('small')?.textContent||'Indicador'));
+    $$('#charts>.metric-panel').forEach(panel=>addCapture(panel,(panel.querySelector('.metric-title')?.textContent||'Indicador')+' completo'));
+    const selectors=['#clinic','#mix','#ranking .rank-card','#rankingMonth .rank-card','#assessmentResult .assessment-box','#growthAssessment .assessment-box','#actionsAssessment .action-clinic-tile','.goal-clinic-card','#view-method .method'];
+    selectors.forEach(selector=>$$(selector).forEach((node,index)=>{const title=node.querySelector('h3,h4,h5,.goal-clinic-head')?.textContent||node.closest('.report-view')?.querySelector('.sect')?.textContent||'Tabela do relatório';addCapture(node,title+' '+(index+1))}));
+    bindPinning();
+    if(pinned)decorateTip(pinned,'tooltip');
+  }
+  const observer=new MutationObserver(()=>{clearTimeout(enhanceTimer);enhanceTimer=setTimeout(enhance,35)});observer.observe(document.documentElement,{subtree:true,childList:true});
+  document.addEventListener('keydown',event=>{if(event.key==='Escape')closePinned()});document.addEventListener('pointerdown',event=>{if(pinned&&!event.target.closest('.is-pinned')&&!event.target.closest('.metric-card,.chart-wrap,.mix-row,.note[data-tooltip]'))closePinned()},true);
+  window.addEventListener('resize',()=>{if(pinned&&pinned.matches('.note-fixed-tooltip'))closePinned()});
+  window.copyReportElementPng=copyPng;
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',enhance);else enhance();
+})();
+</script>
+<!-- ALFAMEN_SHARE_TOOLS_END -->
+
+</body></html>
